@@ -128,6 +128,9 @@ flowchart TD
 
 - `CHARTER.md` — concise project charter
 - `BACKLOG.md` — first-pass local backlog with labels
+- `CONTRIBUTING.md` — contributor workflow, issue standards, RFC expectations
+- `.github/ISSUE_TEMPLATE/` — governance, research, and MVP issue intake
+- `.github/pull_request_template.md` — focused PR expectations for this repo
 - `docs/vision.md` — long-horizon thesis and scope
 - `docs/problem-statement.md` — critique of current systems
 - `docs/core-concepts.md` — conceptual primitives
