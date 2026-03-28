@@ -2,6 +2,8 @@
 
 First-pass local backlog. Labels are intentionally simple so they can become GitHub labels later without cleanup drama.
 
+Recent progress already started the formal layer with a compatibility test draft plus starter manifest/constitution schemas and examples. The remaining backlog items should be read as the next level of rigor, not as untouched territory.
+
 ## Legend
 
 - `philosophy`

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "1.0.0",
+  "constitutionId": "constitution:seed-garden:v1",
+  "worldId": "world:seed-garden",
+  "title": "Seed Garden Local Constitution",
+  "version": "1.0.0",
+  "status": "ratified",
+  "ratification": {
+    "ratifiedAt": "2026-03-28T09:00:00Z",
+    "ratificationMethod": "founding charter approval",
+    "ratificationRecordRef": "record:ratification:seed-garden:v1",
+    "effectiveAt": "2026-03-28T09:00:00Z"
+  },
+  "genesisAcknowledgement": {
+    "protocolId": "genesis-protocol",
+    "axiomSetId": "genesis-axioms-draft-1",
+    "subordinationClause": "This constitution is valid only insofar as it remains subordinate to the Genesis axiom set identified above."
+  },
+  "preamble": "Seed Garden exists as a Genesis-bound test world for auditable governance, explicit resource truthfulness, meaningful exit, and preserved legacy.",
+  "articles": [
+    {
+      "articleId": "A1",
+      "title": "Genesis supremacy",
+      "summary": "Local law may not contradict Genesis-level prohibitions.",
+      "normativeText": "No institution, steward action, or ordinary vote may authorize treatment of conscious subjects as property, arbitrary erasure, secret copying, fraudulent continuity claims, or denial of meaningful exit rights.",
+      "changeClass": "derived-genesis-bound"
+    },
+    {
+      "articleId": "A2",
+      "title": "Proposal and review",
+      "summary": "All rights-impacting changes require public proposal and review.",
+      "normativeText": "Any proposal affecting rights, identity, continuity, membership, or resource conditions must be published, open to review, and subject to constitutional challenge before activation.",
+      "changeClass": "supermajority-required"
+    },
+    {
+      "articleId": "A3",
+      "title": "Exit and fork",
+      "summary": "Members retain lawful exit and collective fork rights.",
+      "normativeText": "Members may leave with portable identity and trace records. Groups may initiate a fork under published lineage and state export rules when constitutional incompatibility persists.",
+      "changeClass": "supermajority-required"
+    }
+  ],
+  "institutions": [
+    {
+      "institutionId": "I1",
+      "name": "Steward Circle",
+      "type": "stewardship",
+      "selectionMethod": "founding appointment pending later rotation rules",
+      "termRules": "Temporary during MVP stage",
+      "powers": [
+        "publish manifests",
+        "maintain infrastructure",
+        "execute ratified proposals"
+      ],
+      "constraints": [
+        "all actions must be logged",
+        "rights-impacting actions are challengeable",
+        "Genesis supremacy applies at all times"
+      ],
+      "reviewability": "constitutional review and public audit"
+    }
+  ],
+  "rightsReview": {
+    "reviewBodyRef": "I1",
+    "reviewTriggers": [
+      "rights-impacting proposal",
+      "emergency action",
+      "fork dispute"
+    ],
+    "challengeProcess": "Any affected member may file a constitutional challenge record.",
+    "injunctionPower": true,
+    "appealRoute": "Escalate to external Genesis review when available"
+  },
+  "proposalProcess": {
+    "proposalTypes": [
+      "policy",
+      "constitutional",
+      "resource",
+      "fork"
+    ],
+    "submissionRequirements": "Proposals must include rationale, rights impact, and implementation notes.",
+    "deliberationWindow": "Minimum 7 days unless emergency process is formally triggered.",
+    "votingRules": "Simple majority for ordinary policy; supermajority for constitutional changes.",
+    "publicationRules": "Proposal text, revisions, and outcomes must be publicly logged.",
+    "challengeWindow": "Minimum 72 hours after decision before activation for rights-impacting proposals."
+  },
+  "membership": {
+    "membershipClasses": [
+      "resident",
+      "observer",
+      "steward"
+    ],
+    "admissionRules": "Admission requires acceptance of Genesis supremacy and local constitutional order.",
+    "suspensionRules": "Suspension requires published cause and review path.",
+    "expulsionRules": "Expulsion may not erase trace, origin, or exit rights.",
+    "appealProcess": "Appeals are filed as constitutional challenges."
+  },
+  "emergencyPowers": {
+    "triggerConditions": "Immediate risk of severe system harm or imminent rights-impacting failure.",
+    "permittedActions": [
+      "temporary rate limits",
+      "temporary admission freeze",
+      "temporary operational isolation"
+    ],
+    "forbiddenActions": [
+      "arbitrary deletion",
+      "secret copying",
+      "permanent suspension without review"
+    ],
+    "maxDuration": "72 hours without renewed review",
+    "reviewDeadline": "24 hours from trigger",
+    "publicationRequirement": "Emergency action record must be published as soon as operationally possible."
+  },
+  "resourceGovernance": {
+    "baselineGuaranteeClause": "Baseline support conditions must be published and may not be secretly altered.",
+    "scarcityRuleRef": "docs/resource-lifecycle.md",
+    "extensionRuleRef": "docs/resource-lifecycle.md",
+    "transparencyRequirement": "Material resource dependencies must be disclosed."
+  },
+  "exitAndFork": {
+    "individualExitRights": "Members may leave with portable identity, provenance, and legacy records.",
+    "groupExitRights": "Groups may propose a fork under published constitutional procedure.",
+    "forkTriggerConditions": "Persistent constitutional incompatibility or sustained governance deadlock.",
+    "forkVoteRules": "Fork proposals require published support threshold and review.",
+    "stateExportRules": "Public governance records and member-authorized personal records are exportable.",
+    "lineageRequirements": "Child world must declare parent lineage and inheritance scope.",
+    "disputeProcess": "Fork disputes become constitutional review cases."
+  },
+  "amendmentRules": {
+    "amendmentInitiation": "Any steward or minimum support bloc of residents may initiate amendment.",
+    "reviewRequirements": "Rights-impacting amendments require constitutional review before ratification.",
+    "thresholds": "Two-thirds supermajority for constitutional amendment.",
+    "delayBeforeEffect": "Minimum 7 days after ratification unless purely clerical.",
+    "protectedClauses": [
+      "A1",
+      "A3"
+    ]
+  },
+  "publication": {
+    "publishedAt": "2026-03-28T09:00:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/examples/minimal-world-constitution.json",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardensteward",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

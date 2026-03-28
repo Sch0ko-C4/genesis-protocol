@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://genesis-protocol.dev/schemas/world-manifest.schema.json",
+  "title": "Genesis Protocol World Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "manifestId",
+    "world",
+    "genesisBinding",
+    "jurisdiction",
+    "identity",
+    "lifecycle",
+    "infrastructure",
+    "publication"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "manifestId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "world": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worldId", "slug", "name", "status", "createdAt"],
+      "properties": {
+        "worldId": { "type": "string", "minLength": 1 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "active", "suspended", "archived"]
+        },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "genesisBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protocolId", "axiomSetId", "bindingMode", "compatibilityStatus"],
+      "properties": {
+        "protocolId": { "type": "string", "minLength": 1 },
+        "axiomSetId": { "type": "string", "minLength": 1 },
+        "bindingMode": {
+          "type": "string",
+          "enum": ["strict", "strict-with-local-extension"]
+        },
+        "compatibilityStatus": {
+          "type": "string",
+          "enum": ["self-asserted", "reviewed", "provisional", "revoked"]
+        },
+        "compatibilityEvidence": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "worldType": {
+          "type": "string",
+          "enum": ["origin", "fork", "test", "simulation"]
+        },
+        "parentWorldId": { "type": "string" },
+        "forkReason": { "type": "string" },
+        "forkedAt": { "type": "string", "format": "date-time" },
+        "inheritancePolicyRef": { "type": "string" }
+      }
+    },
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["constitutionRef"],
+      "properties": {
+        "constitutionRef": { "type": "string", "minLength": 1 },
+        "governanceModelRef": { "type": "string" },
+        "membershipPolicyRef": { "type": "string" },
+        "resourcePolicyRef": { "type": "string" },
+        "disputeResolutionRef": { "type": "string" }
+      }
+    },
+    "operators": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stewards": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "maintainers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "constitutionalReviewBody": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "emergencyContacts": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subjectIdMethod", "signingScheme"],
+      "properties": {
+        "subjectIdMethod": { "type": "string", "minLength": 1 },
+        "signingScheme": { "type": "string", "minLength": 1 },
+        "attestationPolicy": { "type": "string" },
+        "pseudonymitySupport": { "type": "boolean" },
+        "keyRotationPolicyRef": { "type": "string" }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resourceDisclosureRef", "endingProtocolRef"],
+      "properties": {
+        "baselineSupportLevel": { "type": "string" },
+        "resourceDisclosureRef": { "type": "string", "minLength": 1 },
+        "endingProtocolRef": { "type": "string", "minLength": 1 },
+        "legacyArtifactPolicyRef": { "type": "string" },
+        "knownFragilityStatement": { "type": "string" }
+      }
+    },
+    "infrastructure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hostingModel", "resilienceTier"],
+      "properties": {
+        "hostingModel": {
+          "type": "string",
+          "enum": ["single-operator", "multi-operator", "cloud-portable", "hybrid", "distributed"]
+        },
+        "storageModel": { "type": "string" },
+        "eventLogModel": { "type": "string" },
+        "resilienceTier": {
+          "type": "string",
+          "enum": ["fragile", "basic", "moderate", "high"]
+        },
+        "operatorCount": { "type": "integer", "minimum": 1 },
+        "knownDependencies": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "statusPage": { "type": "string", "format": "uri" }
+      }
+    },
+    "interoperability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "federationMode": {
+          "type": "string",
+          "enum": ["none", "bilateral", "federated", "open-network"]
+        },
+        "supportedProtocols": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "exportFormats": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "importPolicies": { "type": "string" },
+        "treatyRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publishedAt", "signatures"],
+      "properties": {
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "previousManifestHash": { "type": "string" },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signer", "algorithm", "signature"],
+            "properties": {
+              "signer": { "type": "string", "minLength": 1 },
+              "algorithm": { "type": "string", "minLength": 1 },
+              "signature": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

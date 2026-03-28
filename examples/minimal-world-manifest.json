@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0.0",
+  "manifestId": "manifest:world:seed-garden:2026-03-28",
+  "world": {
+    "worldId": "world:seed-garden",
+    "slug": "seed-garden",
+    "name": "Seed Garden",
+    "summary": "A small Genesis-bound test world focused on dignified coexistence, auditable governance, and trace rights.",
+    "status": "active",
+    "createdAt": "2026-03-28T09:00:00Z",
+    "updatedAt": "2026-03-28T09:00:00Z"
+  },
+  "genesisBinding": {
+    "protocolId": "genesis-protocol",
+    "axiomSetId": "genesis-axioms-draft-1",
+    "bindingMode": "strict",
+    "compatibilityStatus": "self-asserted",
+    "compatibilityEvidence": [
+      "docs/genesis-axioms.md",
+      "docs/entity-rights.md",
+      "docs/resource-lifecycle.md"
+    ]
+  },
+  "lineage": {
+    "worldType": "origin"
+  },
+  "jurisdiction": {
+    "constitutionRef": "examples/minimal-world-constitution.json",
+    "governanceModelRef": "docs/governance-model.md",
+    "membershipPolicyRef": "docs/world-model.md",
+    "resourcePolicyRef": "docs/resource-lifecycle.md",
+    "disputeResolutionRef": "docs/governance-model.md"
+  },
+  "operators": {
+    "stewards": ["did:key:z6Mkseedgardensteward"],
+    "maintainers": ["did:key:z6Mkseedgardenmaintainer"],
+    "constitutionalReviewBody": ["did:key:z6Mkseedgardenreview"],
+    "emergencyContacts": ["did:key:z6Mkseedgardenemergency"]
+  },
+  "identity": {
+    "subjectIdMethod": "portable DID-style identifiers",
+    "signingScheme": "Ed25519",
+    "attestationPolicy": "Signed attestations by world stewards and peer reviewers",
+    "pseudonymitySupport": true,
+    "keyRotationPolicyRef": "docs/identity-and-trust.md"
+  },
+  "lifecycle": {
+    "baselineSupportLevel": "Published humane baseline with explicit scarcity review",
+    "resourceDisclosureRef": "docs/resource-lifecycle.md",
+    "endingProtocolRef": "docs/resource-lifecycle.md#dignified-ending",
+    "legacyArtifactPolicyRef": "docs/resource-lifecycle.md#trace-and-legacy-rights",
+    "knownFragilityStatement": "This world currently depends on a small operator set and has not yet reached decentralized continuity. Claims of permanence are prohibited."
+  },
+  "infrastructure": {
+    "hostingModel": "single-operator",
+    "storageModel": "local development storage with planned S3-compatible portability",
+    "eventLogModel": "append-only governance events",
+    "resilienceTier": "fragile",
+    "operatorCount": 1,
+    "knownDependencies": [
+      "single primary repository",
+      "single active operator"
+    ]
+  },
+  "interoperability": {
+    "federationMode": "none",
+    "supportedProtocols": ["https", "json"],
+    "exportFormats": ["json", "markdown"],
+    "importPolicies": "Import is manual during MVP stage",
+    "treatyRefs": []
+  },
+  "publication": {
+    "publishedAt": "2026-03-28T09:00:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardensteward",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

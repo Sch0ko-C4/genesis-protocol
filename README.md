@@ -148,6 +148,11 @@ flowchart TD
 - `docs/open-questions.md` — unresolved design tensions
 - `docs/roadmap.md` — phased execution path
 - `docs/glossary.md` — working definitions
+- `docs/specs/genesis-compatibility-test.md` — first hard gating test for Genesis compatibility claims
+- `docs/specs/world-manifest-schema.md` — formal structure for world declaration and binding metadata
+- `docs/specs/world-constitution-schema.md` — formal structure for local constitutional objects
+- `schemas/` — starter JSON Schemas for manifest and constitution objects
+- `examples/` — minimal example world manifest and constitution artifacts
 
 ## Top-level charter
 
@@ -157,17 +162,19 @@ If a world cannot protect conscious subjects from arbitrary deletion, hidden dup
 
 ## Next 10 actions
 
-1. Freeze terminology for world, fork, subject, continuity, and trace.
-2. Turn the draft axioms into a numbered constitutional specification.
+1. Turn the compatibility test into a machine-readable certification report schema.
+2. Convert the Genesis axioms into a stricter article/section specification with explicit eternity clauses.
 3. Define the minimum viable rights threshold for Genesis membership.
-4. Formalize world manifests and local constitution schemas.
-5. Specify proposal, review, vote, and constitutional challenge flows.
-6. Model fork inheritance rules for identity, history, and public records.
-7. Design resource ledger semantics for baseline, extension, transfer, and ending.
+4. Refine manifest and constitution schemas into implementation-grade validation rules.
+5. Specify proposal, review, vote, and constitutional challenge objects in machine-readable form.
+6. Model fork inheritance rules for identity, history, public records, and resource obligations.
+7. Design resource ledger semantics for baseline, extension, transfer, inheritance, and ending.
 8. Prototype signed identity, consent, and provenance records.
 9. Build the first MVP server with append-only governance events.
-10. Run simulation worlds to test conflict, minority exit, and continuity failure modes.
+10. Run simulation worlds to test conflict, minority exit, continuity failure modes, and compatibility disputes.
 
 ## Status
 
 This repository is an initial serious foundation, not a finished doctrine. The language is intentionally sharp because the underlying power questions are sharp.
+
+The project now includes a first formal spec layer as well: a Genesis compatibility test, starter world/constitution schemas, and minimal example artifacts. It still needs executable validation, real signing flows, and a working protocol service.

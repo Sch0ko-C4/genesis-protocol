@@ -29,6 +29,7 @@ Deliverables:
 - initial knowledge base
 - local backlog or GitHub issues
 - early diagrams and schemas
+- first formal specification drafts for compatibility, world manifests, and local constitutions
 
 ## Phase 2 — MVP protocol / server prototype
 
@@ -93,9 +94,9 @@ Deliverables:
 
 ## Immediate sequencing
 
-1. Lock terminology.
-2. Number the axioms.
-3. Define Genesis compatibility tests.
-4. Draft schemas for world manifests, proposals, and fork packages.
+1. Refine the draft compatibility test into a certifiable report format.
+2. Convert Genesis axioms into stricter numbered specification language.
+3. Harden manifest and constitution schemas with validation examples and edge cases.
+4. Draft schemas for proposals, constitutional challenges, consent records, and fork packages.
 5. Build the MVP event log and API.
 6. Run simulation worlds.
