@@ -42,10 +42,12 @@ This is deliberately boring. Boring is good for first proofs.
 6. `ConsentRecord`
 7. `Proposal`
 8. `Vote`
-9. `ForkRequest`
-10. `LegacyArtifact`
-11. `ResourcePolicy`
-12. `LifecycleRecord`
+9. `ConstitutionalChallenge`
+10. `ForkRequest`
+11. `LegacyArtifact`
+12. `ResourcePolicy`
+13. `ResourceLedger`
+14. `LifecycleRecord`
 
 ## MVP flows
 
@@ -61,17 +63,20 @@ Members submit proposals, discuss them, vote, and record the result with signatu
 ### 4. Constitutional checkpoint
 Proposals affecting rights or continuity must pass a Genesis compatibility check before activation.
 
-### 5. Fork flow
+### 5. Challenge flow
+Affected subjects can file a constitutional challenge, trigger a stay where warranted, and receive a logged review outcome.
+
+### 6. Fork flow
 A subgroup files a fork request, selects exportable state, ratifies a new constitution, and launches a new world with lineage metadata.
 
-### 6. Identity and provenance
+### 7. Identity and provenance
 Subjects have portable IDs, signing keys, and origin/provenance records.
 
-### 7. Legacy support
+### 8. Legacy support
 Subjects can publish a signed trace or legacy artifact, including final statements if needed.
 
-### 8. Resource transparency
-The world publishes lifecycle-impacting resource metadata: baseline guarantees, extension rules, and known fragility.
+### 9. Resource transparency
+The world publishes lifecycle-impacting resource metadata and subject-level ledger records: baseline guarantees, extension rules, ending notices, and known fragility.
 
 ## Non-goals for the MVP
 
@@ -91,8 +96,9 @@ The MVP is successful if a reviewer can:
 - see signed proposals and votes
 - verify a constitutional review gate exists
 - execute a lawful fork with lineage retained
+- file and inspect a constitutional challenge with a recorded outcome
 - inspect a subject provenance record
 - inspect a trace / legacy artifact
-- inspect published lifecycle/resource conditions
+- inspect published lifecycle/resource conditions and a subject-level resource ledger
 
 If those things work, Genesis stops being just a philosophical rant and becomes a protocol candidate.

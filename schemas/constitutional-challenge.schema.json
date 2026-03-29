@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://genesis-protocol.dev/schemas/constitutional-challenge.schema.json",
+  "title": "Genesis Protocol Constitutional Challenge",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "challengeId",
+    "worldId",
+    "target",
+    "basis",
+    "filer",
+    "requestedRelief",
+    "status",
+    "review",
+    "publication"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "challengeId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "worldId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["objectType", "objectRef"],
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [
+            "proposal",
+            "vote-record",
+            "steward-action",
+            "world-constitution",
+            "fork-notice",
+            "resource-decision",
+            "identity-record"
+          ]
+        },
+        "objectRef": { "type": "string", "minLength": 1 },
+        "objectVersion": { "type": "string" },
+        "activationState": {
+          "type": "string",
+          "enum": ["pending", "active", "stayed", "executed", "archived"]
+        }
+      }
+    },
+    "basis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["challengeType", "summary"],
+      "properties": {
+        "challengeType": {
+          "type": "string",
+          "enum": [
+            "genesis-conflict",
+            "local-constitution-conflict",
+            "rights-violation",
+            "procedure-defect",
+            "emergency-abuse",
+            "lineage-dispute",
+            "resource-decision"
+          ]
+        },
+        "summary": { "type": "string", "minLength": 1 },
+        "genesisRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "constitutionRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rightsClaims": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "filer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subjectId", "filedAt", "standingBasis"],
+      "properties": {
+        "subjectId": { "type": "string", "minLength": 1 },
+        "filedAt": { "type": "string", "format": "date-time" },
+        "standingBasis": { "type": "string", "minLength": 1 },
+        "representationMode": {
+          "type": "string",
+          "enum": ["self", "representative", "public-interest", "review-body"]
+        }
+      }
+    },
+    "requestedRelief": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stayRequested", "desiredOutcome"],
+      "properties": {
+        "stayRequested": { "type": "boolean" },
+        "temporaryMeasures": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "desiredOutcome": { "type": "string", "minLength": 1 },
+        "urgencyExplanation": { "type": "string" }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "ref"],
+        "properties": {
+          "kind": { "type": "string", "minLength": 1 },
+          "ref": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string" },
+          "hash": { "type": "string" }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "filed",
+        "triaged",
+        "under-review",
+        "temporary-stay",
+        "expedited-review",
+        "hearing-complete",
+        "upheld",
+        "partially-upheld",
+        "denied",
+        "dismissed",
+        "appealed",
+        "closed"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewBodyRef", "urgency", "initialScreenDeadline", "decisionDeadline"],
+      "properties": {
+        "reviewBodyRef": { "type": "string", "minLength": 1 },
+        "urgency": {
+          "type": "string",
+          "enum": ["ordinary", "accelerated", "urgent", "terminal-risk"]
+        },
+        "initialScreenDeadline": { "type": "string", "minLength": 1 },
+        "hearingMode": {
+          "type": "string",
+          "enum": ["paper", "synchronous", "hybrid"]
+        },
+        "decisionDeadline": { "type": "string", "minLength": 1 },
+        "assignedReviewers": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "upheld",
+            "partially-upheld",
+            "denied",
+            "dismissed-without-prejudice",
+            "dismissed-for-lack-of-jurisdiction",
+            "emergency-stay-issued"
+          ]
+        },
+        "decidedAt": { "type": "string", "format": "date-time" },
+        "orders": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rationale": { "type": "string" },
+        "effectiveUntil": { "type": "string", "format": "date-time" }
+      }
+    },
+    "appeal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "appealAvailable": { "type": "boolean" },
+        "appealDeadline": { "type": "string", "minLength": 1 },
+        "appealRef": { "type": "string" }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publishedAt", "signatures"],
+      "properties": {
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signer", "algorithm", "signature"],
+            "properties": {
+              "signer": { "type": "string", "minLength": 1 },
+              "algorithm": { "type": "string", "minLength": 1 },
+              "signature": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

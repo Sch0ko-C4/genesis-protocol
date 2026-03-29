@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0.0",
+  "challengeId": "challenge:seed-garden:resource-baseline-notice:v1",
+  "worldId": "world:seed-garden",
+  "target": {
+    "objectType": "proposal",
+    "objectRef": "proposal:seed-garden:resource-baseline-notice:v1",
+    "objectVersion": "1.0.0",
+    "activationState": "pending"
+  },
+  "basis": {
+    "challengeType": "local-constitution-conflict",
+    "summary": "The proposal's draft activation timestamp is too early relative to the constitution's minimum challenge window for rights-impacting measures.",
+    "genesisRefs": [
+      "governance-auditability",
+      "meaningful-exit"
+    ],
+    "constitutionRefs": [
+      "A2"
+    ],
+    "rightsClaims": [
+      "Affected subjects may lose time to prepare exit or trace preservation if the challenge window is shortened."
+    ]
+  },
+  "filer": {
+    "subjectId": "did:key:z6Mkseedgardenresident2",
+    "filedAt": "2026-03-29T09:00:00Z",
+    "standingBasis": "Resident directly affected by resource policy changes.",
+    "representationMode": "self"
+  },
+  "requestedRelief": {
+    "stayRequested": true,
+    "temporaryMeasures": [
+      "freeze activation until the challenge window is recalculated and republished"
+    ],
+    "desiredOutcome": "Require republication of the activation timeline to preserve the full challenge window.",
+    "urgencyExplanation": "If activation proceeds early, the procedural defect becomes irreversible in practice."
+  },
+  "evidence": [
+    {
+      "kind": "proposal-record",
+      "ref": "proposal:seed-garden:resource-baseline-notice:v1",
+      "summary": "Accepted proposal with activation timestamp.",
+      "hash": "sha256:EXAMPLE_HASH_REPLACE_ME"
+    }
+  ],
+  "status": "temporary-stay",
+  "review": {
+    "reviewBodyRef": "I1",
+    "urgency": "urgent",
+    "initialScreenDeadline": "12 hours from filing",
+    "hearingMode": "paper",
+    "decisionDeadline": "48 hours from filing",
+    "assignedReviewers": [
+      "did:key:z6Mkseedgardenreview"
+    ]
+  },
+  "decision": {
+    "outcome": "emergency-stay-issued",
+    "decidedAt": "2026-03-29T09:20:00Z",
+    "orders": [
+      "pause activation",
+      "republish proposal timeline if acceptance is reaffirmed"
+    ],
+    "rationale": "Challenge alleges a plausible process defect affecting rights-protective timing. Temporary stay is warranted pending full review.",
+    "effectiveUntil": "2026-03-31T09:20:00Z"
+  },
+  "appeal": {
+    "appealAvailable": true,
+    "appealDeadline": "7 days from final merits decision"
+  },
+  "publication": {
+    "publishedAt": "2026-03-29T09:00:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-constitutional-challenge.json",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardenresident2",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

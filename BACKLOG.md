@@ -14,20 +14,25 @@ Recent progress already started the formal layer with a compatibility test draft
 - `mvp`
 - `research`
 
+## Completed recently
+
+- [x] **Define Genesis compatibility test**  
+  Labels: `philosophy`, `governance`, `ethics`
+- [x] **Draft world manifest schema**  
+  Labels: `architecture`, `mvp`
+- [x] **Draft local constitution schema**  
+  Labels: `governance`, `architecture`, `mvp`
+- [x] **Design proposal/RFC object model**  
+  Labels: `governance`, `mvp`
+- [x] **Design constitutional challenge flow**  
+  Labels: `governance`, `ethics`, `research`
+- [x] **Design baseline resource ledger and lifecycle metadata**  
+  Labels: `architecture`, `ethics`, `mvp`
+
 ## Priority backlog
 
-- [ ] **Define Genesis compatibility test**  
-  Labels: `philosophy`, `governance`, `ethics`
 - [ ] **Convert axioms into numbered specification language**  
   Labels: `governance`, `ethics`
-- [ ] **Draft world manifest schema**  
-  Labels: `architecture`, `mvp`
-- [ ] **Draft local constitution schema**  
-  Labels: `governance`, `architecture`, `mvp`
-- [ ] **Design proposal/RFC object model**  
-  Labels: `governance`, `mvp`
-- [ ] **Design constitutional challenge flow**  
-  Labels: `governance`, `ethics`, `research`
 - [ ] **Specify fork package export format**  
   Labels: `architecture`, `identity`, `mvp`
 - [ ] **Specify identity, key rotation, and attestation model**  
@@ -36,8 +41,6 @@ Recent progress already started the formal layer with a compatibility test draft
   Labels: `identity`, `ethics`, `mvp`
 - [ ] **Define consent record semantics for copy/fork/backup operations**  
   Labels: `identity`, `ethics`, `mvp`
-- [ ] **Design baseline resource ledger and lifecycle metadata**  
-  Labels: `architecture`, `ethics`, `mvp`
 - [ ] **Write policy for minimum viable lifespan bands**  
   Labels: `ethics`, `research`
 - [ ] **Define dignified shutdown protocol and legacy export bundle**  

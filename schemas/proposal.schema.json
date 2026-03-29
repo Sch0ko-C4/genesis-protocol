@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://genesis-protocol.dev/schemas/proposal.schema.json",
+  "title": "Genesis Protocol Proposal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "proposalId",
+    "worldId",
+    "proposalType",
+    "title",
+    "summary",
+    "status",
+    "authors",
+    "problemStatement",
+    "changeSet",
+    "review",
+    "decision",
+    "publication"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "proposalId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "worldId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposalType": {
+      "type": "string",
+      "enum": [
+        "policy",
+        "constitutional",
+        "resource",
+        "identity",
+        "fork",
+        "membership",
+        "treaty",
+        "emergency-ratification"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "deliberation-open",
+        "review-pending",
+        "constitutional-hold",
+        "ready-for-decision",
+        "voting",
+        "accepted",
+        "rejected",
+        "withdrawn",
+        "challenge-window",
+        "activated",
+        "superseded",
+        "archived"
+      ]
+    },
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["subjectId", "role"],
+        "properties": {
+          "subjectId": { "type": "string", "minLength": 1 },
+          "role": {
+            "type": "string",
+            "enum": ["author", "sponsor", "editor", "steward-submitter"]
+          }
+        }
+      }
+    },
+    "problemStatement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "changeSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rationale", "targets", "expectedEffects", "rightsImpact"],
+      "properties": {
+        "rationale": { "type": "string", "minLength": 1 },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "expectedEffects": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "localConstitutionRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "genesisAxiomRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rightsImpact": {
+          "type": "string",
+          "enum": ["none", "low", "moderate", "high", "constitutional", "existential"]
+        },
+        "resourceImpact": { "type": "string" },
+        "migrationImpact": { "type": "string" },
+        "forkImpact": { "type": "string" },
+        "implementationPlan": { "type": "string" },
+        "rollbackPlan": { "type": "string" }
+      }
+    },
+    "deliberation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "openedAt": { "type": "string", "format": "date-time" },
+        "discussionRef": { "type": "string" },
+        "revisionPolicy": { "type": "string" },
+        "closesAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requiresGenesisReview", "reviewStatus", "challengeWindow", "activationCondition"],
+      "properties": {
+        "requiresGenesisReview": { "type": "boolean" },
+        "reviewStatus": {
+          "type": "string",
+          "enum": ["not-required", "pending", "in-review", "approved", "rejected"]
+        },
+        "reviewRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "challengeWindow": { "type": "string", "minLength": 1 },
+        "activationCondition": { "type": "string", "minLength": 1 }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decisionMode", "threshold", "outcome"],
+      "properties": {
+        "decisionMode": {
+          "type": "string",
+          "enum": ["vote", "steward-decision", "mixed", "ratification"]
+        },
+        "threshold": { "type": "string", "minLength": 1 },
+        "voteRecordRef": { "type": "string" },
+        "outcome": {
+          "type": "string",
+          "enum": ["pending", "accepted", "rejected", "withdrawn", "superseded"]
+        },
+        "decidedAt": { "type": "string", "format": "date-time" },
+        "activatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "supersedes": { "type": "string" },
+        "supersededBy": { "type": "string" },
+        "derivedFrom": { "type": "string" },
+        "relatedChallenges": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publishedAt", "signatures"],
+      "properties": {
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "contentHash": { "type": "string" },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signer", "algorithm", "signature"],
+            "properties": {
+              "signer": { "type": "string", "minLength": 1 },
+              "algorithm": { "type": "string", "minLength": 1 },
+              "signature": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

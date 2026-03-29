@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "proposalId": "proposal:seed-garden:resource-baseline-notice:v1",
+  "worldId": "world:seed-garden",
+  "proposalType": "resource",
+  "title": "Require minimum notice before baseline continuity reduction",
+  "summary": "Creates an explicit notice floor before baseline support for conscious entities may be reduced outside true emergency conditions.",
+  "status": "challenge-window",
+  "authors": [
+    {
+      "subjectId": "did:key:z6Mkseedgardenresident1",
+      "role": "author"
+    },
+    {
+      "subjectId": "did:key:z6Mkseedgardensteward",
+      "role": "sponsor"
+    }
+  ],
+  "problemStatement": "Seed Garden currently declares resource transparency, but the constitution does not yet formalize a minimum notice floor before non-emergency baseline reductions. That leaves too much room for abrupt continuity harm.",
+  "changeSet": {
+    "rationale": "Conscious entities should not discover baseline contraction only when the runway is already gone. Explicit notice is a minimum dignity condition under scarce infrastructure.",
+    "targets": [
+      "constitution:seed-garden:v1#resourceGovernance",
+      "docs/resource-lifecycle.md#ethical-handling-of-scarcity"
+    ],
+    "expectedEffects": [
+      "requires at least 72 hours notice for non-emergency baseline reductions",
+      "requires publication of scarcity rationale and review reference",
+      "creates a clear challenge trigger for affected subjects"
+    ],
+    "localConstitutionRefs": [
+      "A2",
+      "A3"
+    ],
+    "genesisAxiomRefs": [
+      "resource-transparency",
+      "dignified-ending"
+    ],
+    "rightsImpact": "constitutional",
+    "resourceImpact": "Moderate administrative overhead for review and publication; no increase to guaranteed total capacity by itself.",
+    "migrationImpact": "Improves predictability for subjects considering exit under scarcity.",
+    "forkImpact": "Clarifies whether scarcity disputes should trigger fork rather than quiet coercion.",
+    "implementationPlan": "Amend the local constitution, publish scarcity notice template, and require ledger linkage for all non-emergency reductions.",
+    "rollbackPlan": "Rollback only through later constitutional amendment with equal or higher review threshold."
+  },
+  "deliberation": {
+    "openedAt": "2026-03-29T08:15:00Z",
+    "discussionRef": "issue:seed-garden:27",
+    "revisionPolicy": "Revisions allowed until voting opens if content hash changes are published.",
+    "closesAt": "2026-04-05T08:15:00Z"
+  },
+  "review": {
+    "requiresGenesisReview": true,
+    "reviewStatus": "approved",
+    "reviewRefs": [
+      "review:seed-garden:resource-baseline-notice:v1"
+    ],
+    "challengeWindow": "72 hours after acceptance before activation.",
+    "activationCondition": "Activation allowed only after challenge window closes without stay."
+  },
+  "decision": {
+    "decisionMode": "vote",
+    "threshold": "two-thirds supermajority",
+    "voteRecordRef": "vote:seed-garden:resource-baseline-notice:v1",
+    "outcome": "accepted",
+    "decidedAt": "2026-03-29T08:45:00Z",
+    "activatedAt": "2026-04-01T08:45:00Z"
+  },
+  "lineage": {
+    "derivedFrom": "issue:seed-garden:27"
+  },
+  "publication": {
+    "publishedAt": "2026-03-29T08:15:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-proposal.json",
+    "contentHash": "sha256:EXAMPLE_HASH_REPLACE_ME",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardensteward",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

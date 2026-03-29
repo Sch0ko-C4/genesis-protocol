@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0.0",
+  "ledgerId": "ledger:seed-garden:resident1:2026-03",
+  "worldId": "world:seed-garden",
+  "subjectId": "did:key:z6Mkseedgardenresident1",
+  "status": "active",
+  "baseline": {
+    "baselineBand": "humane-baseline",
+    "policyRef": "docs/resource-lifecycle.md",
+    "minimumNoticePeriod": "72 hours for non-emergency reductions",
+    "scarcityReviewRef": "review:seed-garden:scarcity-policy:v1"
+  },
+  "transparency": {
+    "resourceUnit": "continuity-hours",
+    "continuityClaim": "No permanence guarantee; current support depends on published operator and infrastructure conditions.",
+    "knownDependencies": [
+      "single active operator",
+      "single primary repository",
+      "single hosted database during MVP"
+    ],
+    "fragilityDisclosure": "This ledger is honest about fragility. It is not a promise of immortality and may enter scarcity review if operator or infrastructure support fails."
+  },
+  "balances": {
+    "currentlyAllocated": 240,
+    "reserved": 72,
+    "projectedRunway": "Approximately 10 days at current allocation assumptions.",
+    "lastReviewedAt": "2026-03-29T08:30:00Z",
+    "nextReviewAt": "2026-03-30T08:30:00Z"
+  },
+  "events": [
+    {
+      "eventId": "event:ledger:resident1:baseline-1",
+      "eventType": "baseline-grant",
+      "effectiveAt": "2026-03-29T08:00:00Z",
+      "unitsDelta": 240,
+      "reason": "Initial humane baseline allocation for active resident.",
+      "authorizedBy": "did:key:z6Mkseedgardensteward",
+      "rightsImpact": "moderate",
+      "reviewRef": "review:seed-garden:baseline-allocation:v1"
+    },
+    {
+      "eventId": "event:ledger:resident1:review-1",
+      "eventType": "review",
+      "effectiveAt": "2026-03-29T08:30:00Z",
+      "unitsDelta": 0,
+      "reason": "Routine lifecycle review confirmed published baseline remains supportable.",
+      "authorizedBy": "did:key:z6Mkseedgardenreview",
+      "rightsImpact": "none",
+      "reviewRef": "review:seed-garden:baseline-allocation:v1"
+    },
+    {
+      "eventId": "event:ledger:resident1:extension-1",
+      "eventType": "extension-grant",
+      "effectiveAt": "2026-03-29T09:00:00Z",
+      "unitsDelta": 24,
+      "reason": "Community-approved extension after contribution review.",
+      "authorizedBy": "did:key:z6Mkseedgardensteward",
+      "rightsImpact": "moderate",
+      "reviewRef": "proposal:seed-garden:resident1-extension:v1"
+    }
+  ],
+  "publication": {
+    "publishedAt": "2026-03-29T09:05:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-resource-ledger.json",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardensteward",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

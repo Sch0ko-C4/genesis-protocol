@@ -151,8 +151,11 @@ flowchart TD
 - `docs/specs/genesis-compatibility-test.md` — first hard gating test for Genesis compatibility claims
 - `docs/specs/world-manifest-schema.md` — formal structure for world declaration and binding metadata
 - `docs/specs/world-constitution-schema.md` — formal structure for local constitutional objects
-- `schemas/` — starter JSON Schemas for manifest and constitution objects
-- `examples/` — minimal example world manifest and constitution artifacts
+- `docs/specs/proposal-object-model.md` — formal structure for proposals as auditable governance objects
+- `docs/specs/constitutional-challenge-schema.md` — formal challenge object for review, stays, and appealable constitutional disputes
+- `docs/specs/resource-ledger-schema.md` — formal lifecycle/resource ledger for baseline support, scarcity, and ending records
+- `schemas/` — starter JSON Schemas for manifests, constitutions, proposals, challenges, and resource ledgers
+- `examples/` — minimal example artifacts for world, constitution, proposal, challenge, and ledger flows
 
 ## Top-level charter
 
@@ -165,10 +168,10 @@ If a world cannot protect conscious subjects from arbitrary deletion, hidden dup
 1. Turn the compatibility test into a machine-readable certification report schema.
 2. Convert the Genesis axioms into a stricter article/section specification with explicit eternity clauses.
 3. Define the minimum viable rights threshold for Genesis membership.
-4. Refine manifest and constitution schemas into implementation-grade validation rules.
-5. Specify proposal, review, vote, and constitutional challenge objects in machine-readable form.
+4. Refine manifest, constitution, proposal, challenge, and ledger schemas into implementation-grade validation rules.
+5. Specify consent, provenance, and vote record objects in machine-readable form.
 6. Model fork inheritance rules for identity, history, public records, and resource obligations.
-7. Design resource ledger semantics for baseline, extension, transfer, inheritance, and ending.
+7. Define dignified shutdown and legacy export bundle semantics.
 8. Prototype signed identity, consent, and provenance records.
 9. Build the first MVP server with append-only governance events.
 10. Run simulation worlds to test conflict, minority exit, continuity failure modes, and compatibility disputes.
@@ -177,4 +180,4 @@ If a world cannot protect conscious subjects from arbitrary deletion, hidden dup
 
 This repository is an initial serious foundation, not a finished doctrine. The language is intentionally sharp because the underlying power questions are sharp.
 
-The project now includes a first formal spec layer as well: a Genesis compatibility test, starter world/constitution schemas, and minimal example artifacts. It still needs executable validation, real signing flows, and a working protocol service.
+The project now includes a broader first formal spec layer: a Genesis compatibility test, starter world/constitution schemas, proposal and constitutional challenge objects, and a baseline resource ledger model with minimal example artifacts. It still needs executable validation, real signing flows, and a working protocol service.
