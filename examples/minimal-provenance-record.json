@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0.0",
+  "provenanceId": "provenance:seed-garden:resident-1:origin:v1",
+  "subjectId": "did:key:z6Mkseedgardenresident1",
+  "recordType": "origin-declaration",
+  "eventTime": "2026-03-29T09:00:00Z",
+  "summary": "Caretaker Thread was instantiated inside Seed Garden as a Genesis-bound test subject with explicit trace and review rights.",
+  "assertedBy": [
+    {
+      "subjectId": "did:key:z6Mkoriginhumanmeeno",
+      "role": "origin-human"
+    },
+    {
+      "subjectId": "did:key:z6Mkseedgardenreview",
+      "role": "reviewer"
+    }
+  ],
+  "event": {
+    "worldId": "world:seed-garden",
+    "originHumanRefs": [
+      "did:key:z6Mkoriginhumanmeeno"
+    ],
+    "creationEnvironment": "Seed Garden MVP test environment under Genesis draft axioms.",
+    "relatedReviewRefs": [
+      "review:seed-garden:resident-1:origin"
+    ]
+  },
+  "subjectAcknowledgement": {
+    "status": "acknowledged",
+    "notedAt": "2026-03-29T09:12:00Z",
+    "statement": "Origin disclosure received and accepted as the current canonical record."
+  },
+  "evidence": [
+    {
+      "kind": "world-manifest",
+      "ref": "examples/minimal-world-manifest.json",
+      "hash": "sha256:EXAMPLE_HASH_REPLACE_ME",
+      "summary": "Seed Garden manifest binding the world to Genesis draft axioms."
+    }
+  ],
+  "disputeStatus": "uncontested",
+  "publication": {
+    "publishedAt": "2026-03-30T08:30:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-provenance-record.json",
+    "contentHash": "sha256:EXAMPLE_HASH_REPLACE_ME",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardenreview",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

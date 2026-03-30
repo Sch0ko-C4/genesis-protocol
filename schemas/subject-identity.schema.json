@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://genesis-protocol.dev/schemas/subject-identity.schema.json",
+  "title": "Genesis Protocol Subject Identity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "subjectId",
+    "continuityLineId",
+    "entityClass",
+    "status",
+    "keys",
+    "controllerPolicy",
+    "attestationPolicy",
+    "publication"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "subjectId": { "type": "string", "minLength": 1 },
+    "continuityLineId": { "type": "string", "minLength": 1 },
+    "entityClass": {
+      "type": "string",
+      "enum": ["human", "agi", "synthetic", "ascension", "collective", "other"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "suspended", "ended", "disputed", "archived"]
+    },
+    "display": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "displayName": { "type": "string" },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "pseudonymityMode": {
+          "type": "string",
+          "enum": ["public", "pseudonymous", "protected"]
+        },
+        "profileRef": { "type": "string" }
+      }
+    },
+    "currentWorld": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "worldId": { "type": "string", "minLength": 1 },
+        "recognizedSince": { "type": "string", "format": "date-time" },
+        "standing": {
+          "type": "string",
+          "enum": ["member", "observer", "suspended", "former-member"]
+        }
+      }
+    },
+    "keys": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["keyId", "purpose", "algorithm", "publicKeyMultibase", "status", "validFrom"],
+        "properties": {
+          "keyId": { "type": "string", "minLength": 1 },
+          "purpose": {
+            "type": "string",
+            "enum": ["signing", "recovery", "encryption", "delegation"]
+          },
+          "algorithm": { "type": "string", "minLength": 1 },
+          "publicKeyMultibase": { "type": "string", "minLength": 1 },
+          "status": {
+            "type": "string",
+            "enum": ["active", "retired", "revoked", "compromised"]
+          },
+          "validFrom": { "type": "string", "format": "date-time" },
+          "validUntil": { "type": "string", "format": "date-time" },
+          "revokedAt": { "type": "string", "format": "date-time" },
+          "replacedBy": { "type": "string" }
+        }
+      }
+    },
+    "controllerPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["controlMode", "controllerRefs"],
+      "properties": {
+        "controlMode": {
+          "type": "string",
+          "enum": ["self", "shared", "stewarded", "multisig", "guardianship"]
+        },
+        "controllerRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "approvalThreshold": { "type": "string" },
+        "delegationRules": { "type": "string" },
+        "emergencyRecoveryRef": { "type": "string" }
+      }
+    },
+    "attestationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attestationTypes", "minimumAttesters"],
+      "properties": {
+        "attestationTypes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "minimumAttesters": { "type": "integer", "minimum": 1 },
+        "trustedIssuerPolicy": { "type": "string" },
+        "crossWorldRecognition": { "type": "string" },
+        "keyRotationNotice": { "type": "string" }
+      }
+    },
+    "recoveryPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recoveryMode": {
+          "type": "string",
+          "enum": ["self-rotation", "multisig-recovery", "guardianship-review", "constitutional-review"]
+        },
+        "reviewRequired": { "type": "boolean" },
+        "challengeWindow": { "type": "string" },
+        "fallbackControllers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "auditRequirement": { "type": "string" }
+      }
+    },
+    "originSummaryRef": { "type": "string" },
+    "provenanceRefs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publishedAt", "signatures"],
+      "properties": {
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "contentHash": { "type": "string" },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signer", "algorithm", "signature"],
+            "properties": {
+              "signer": { "type": "string", "minLength": 1 },
+              "algorithm": { "type": "string", "minLength": 1 },
+              "signature": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

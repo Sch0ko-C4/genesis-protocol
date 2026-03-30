@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "voteId": "vote:seed-garden:resource-baseline-notice:v1",
+  "worldId": "world:seed-garden",
+  "proposalId": "proposal:seed-garden:resource-baseline-notice:v1",
+  "decisionBody": {
+    "bodyId": "body:seed-garden:civic-assembly",
+    "name": "Seed Garden Civic Assembly",
+    "decisionClass": "constitutional-resource-vote"
+  },
+  "votingMethod": {
+    "ballotVisibility": "public",
+    "electorateRule": "All active members recognized at vote open may cast one weighted-equal ballot.",
+    "quorumRule": "At least 3 of 4 active members must cast ballots.",
+    "thresholdRule": "Two-thirds of valid ballots cast must support the proposal.",
+    "weightingRule": "One member, one vote."
+  },
+  "electorateSnapshot": {
+    "eligibleCount": 4,
+    "snapshotRef": "snapshot:seed-garden:assembly:2026-03-29T08:40:00Z"
+  },
+  "options": [
+    {
+      "optionId": "yes",
+      "label": "Approve",
+      "description": "Adopt the proposal and open the challenge window."
+    },
+    {
+      "optionId": "no",
+      "label": "Reject",
+      "description": "Reject the proposal with no activation."
+    }
+  ],
+  "ballots": [
+    {
+      "voterRef": "did:key:z6Mkseedgardenresident1",
+      "optionId": "yes",
+      "weight": 1,
+      "castAt": "2026-03-29T08:41:00Z",
+      "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+    },
+    {
+      "voterRef": "did:key:z6Mkseedgardenresident2",
+      "optionId": "yes",
+      "weight": 1,
+      "castAt": "2026-03-29T08:42:00Z",
+      "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+    },
+    {
+      "voterRef": "did:key:z6Mkseedgardensteward",
+      "optionId": "no",
+      "weight": 1,
+      "castAt": "2026-03-29T08:43:00Z",
+      "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+    }
+  ],
+  "tally": {
+    "optionTallies": [
+      {
+        "optionId": "yes",
+        "votes": 2,
+        "weight": 2
+      },
+      {
+        "optionId": "no",
+        "votes": 1,
+        "weight": 1
+      }
+    ],
+    "abstentions": 1,
+    "invalidBallots": 0,
+    "totalCast": 3,
+    "quorumMet": true,
+    "thresholdMet": true,
+    "certifiedBy": "did:key:z6Mkseedgardenreview",
+    "certifiedAt": "2026-03-29T08:45:00Z"
+  },
+  "outcome": "accepted",
+  "openedAt": "2026-03-29T08:40:00Z",
+  "closedAt": "2026-03-29T08:45:00Z",
+  "challengeWindow": "72 hours after certification before activation.",
+  "publication": {
+    "publishedAt": "2026-03-30T08:30:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-vote-record.json",
+    "contentHash": "sha256:EXAMPLE_HASH_REPLACE_ME",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardenreview",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://genesis-protocol.dev/schemas/vote-record.schema.json",
+  "title": "Genesis Protocol Vote Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "voteId",
+    "worldId",
+    "proposalId",
+    "decisionBody",
+    "votingMethod",
+    "options",
+    "tally",
+    "outcome",
+    "openedAt",
+    "closedAt",
+    "publication"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "voteId": { "type": "string", "minLength": 1 },
+    "worldId": { "type": "string", "minLength": 1 },
+    "proposalId": { "type": "string", "minLength": 1 },
+    "decisionBody": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bodyId", "name", "decisionClass"],
+      "properties": {
+        "bodyId": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "decisionClass": { "type": "string", "minLength": 1 }
+      }
+    },
+    "votingMethod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ballotVisibility", "electorateRule", "quorumRule", "thresholdRule", "weightingRule"],
+      "properties": {
+        "ballotVisibility": {
+          "type": "string",
+          "enum": ["public", "pseudonymous", "secret-with-proof"]
+        },
+        "electorateRule": { "type": "string", "minLength": 1 },
+        "quorumRule": { "type": "string", "minLength": 1 },
+        "thresholdRule": { "type": "string", "minLength": 1 },
+        "weightingRule": { "type": "string", "minLength": 1 }
+      }
+    },
+    "electorateSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eligibleCount": { "type": "integer", "minimum": 0 },
+        "snapshotRef": { "type": "string" },
+        "exclusionNotes": { "type": "string" }
+      }
+    },
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["optionId", "label"],
+        "properties": {
+          "optionId": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "ballots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["voterRef", "optionId", "weight", "castAt"],
+        "properties": {
+          "voterRef": { "type": "string", "minLength": 1 },
+          "optionId": { "type": "string", "minLength": 1 },
+          "weight": { "type": "number", "minimum": 0 },
+          "castAt": { "type": "string", "format": "date-time" },
+          "ballotProof": { "type": "string" },
+          "signature": { "type": "string" }
+        }
+      }
+    },
+    "tally": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["optionTallies", "abstentions", "invalidBallots", "totalCast", "quorumMet", "thresholdMet", "certifiedBy", "certifiedAt"],
+      "properties": {
+        "optionTallies": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["optionId", "votes", "weight"],
+            "properties": {
+              "optionId": { "type": "string", "minLength": 1 },
+              "votes": { "type": "integer", "minimum": 0 },
+              "weight": { "type": "number", "minimum": 0 }
+            }
+          }
+        },
+        "abstentions": { "type": "integer", "minimum": 0 },
+        "invalidBallots": { "type": "integer", "minimum": 0 },
+        "totalCast": { "type": "integer", "minimum": 0 },
+        "quorumMet": { "type": "boolean" },
+        "thresholdMet": { "type": "boolean" },
+        "certifiedBy": { "type": "string", "minLength": 1 },
+        "certifiedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["accepted", "rejected", "tied", "void", "pending-certification"]
+    },
+    "openedAt": { "type": "string", "format": "date-time" },
+    "closedAt": { "type": "string", "format": "date-time" },
+    "challengeWindow": { "type": "string" },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publishedAt", "signatures"],
+      "properties": {
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "contentHash": { "type": "string" },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signer", "algorithm", "signature"],
+            "properties": {
+              "signer": { "type": "string", "minLength": 1 },
+              "algorithm": { "type": "string", "minLength": 1 },
+              "signature": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

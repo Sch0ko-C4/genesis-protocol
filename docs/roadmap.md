@@ -29,7 +29,7 @@ Deliverables:
 - initial knowledge base
 - local backlog or GitHub issues
 - early diagrams and schemas
-- first formal specification drafts for compatibility, world manifests, local constitutions, proposals, challenges, and lifecycle ledgers
+- first formal specification drafts for compatibility, world manifests, local constitutions, proposals, challenges, lifecycle ledgers, subject identities, provenance, consent, and vote records
 
 ## Phase 2 — MVP protocol / server prototype
 
@@ -94,9 +94,9 @@ Deliverables:
 
 ## Immediate sequencing
 
-1. Refine the draft compatibility test into a certifiable report format.
-2. Convert Genesis axioms into stricter numbered specification language.
-3. Harden manifest, constitution, proposal, challenge, and ledger schemas with validation examples and edge cases.
-4. Draft schemas for consent records, provenance records, vote records, and fork packages.
+1. Convert Genesis axioms into stricter numbered specification language.
+2. Specify the fork package export format and inheritance model.
+3. Define the dignified shutdown protocol and legacy export bundle as formal artifacts.
+4. Harden manifest, constitution, proposal, challenge, ledger, identity, provenance, consent, vote, and compatibility schemas with edge cases and negative tests.
 5. Build the MVP event log and API.
 6. Run simulation worlds.

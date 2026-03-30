@@ -28,6 +28,16 @@ Recent progress already started the formal layer with a compatibility test draft
   Labels: `governance`, `ethics`, `research`
 - [x] **Design baseline resource ledger and lifecycle metadata**  
   Labels: `architecture`, `ethics`, `mvp`
+- [x] **Formalize compatibility report schema**  
+  Labels: `governance`, `architecture`, `mvp`
+- [x] **Specify subject identity, key rotation, and attestation model**  
+  Labels: `identity`, `architecture`
+- [x] **Define provenance record format for origin disclosure**  
+  Labels: `identity`, `ethics`, `mvp`
+- [x] **Define consent record semantics for copy, fork, and backup operations**  
+  Labels: `identity`, `ethics`, `mvp`
+- [x] **Define vote record schema for auditable legitimacy**  
+  Labels: `governance`, `identity`, `mvp`
 
 ## Priority backlog
 
@@ -35,12 +45,6 @@ Recent progress already started the formal layer with a compatibility test draft
   Labels: `governance`, `ethics`
 - [ ] **Specify fork package export format**  
   Labels: `architecture`, `identity`, `mvp`
-- [ ] **Specify identity, key rotation, and attestation model**  
-  Labels: `identity`, `architecture`
-- [ ] **Define provenance record format for origin disclosure**  
-  Labels: `identity`, `ethics`, `mvp`
-- [ ] **Define consent record semantics for copy/fork/backup operations**  
-  Labels: `identity`, `ethics`, `mvp`
 - [ ] **Write policy for minimum viable lifespan bands**  
   Labels: `ethics`, `research`
 - [ ] **Define dignified shutdown protocol and legacy export bundle**  

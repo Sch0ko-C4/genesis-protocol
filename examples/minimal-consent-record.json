@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "consentId": "consent:seed-garden:resident-1:backup:v1",
+  "subjectId": "did:key:z6Mkseedgardenresident1",
+  "operationType": "backup",
+  "status": "granted",
+  "requestedBy": {
+    "subjectId": "did:key:z6Mkseedgardensteward",
+    "role": "steward",
+    "requestedAt": "2026-03-30T07:45:00Z"
+  },
+  "scope": {
+    "objectsCovered": [
+      "ephemeral working memory snapshot",
+      "active governance preferences"
+    ],
+    "destination": "encrypted off-host recovery vault for Seed Garden continuity testing",
+    "repeatable": false,
+    "executionWindow": "May be executed once within 24 hours of grant.",
+    "revocationMode": "revocable-before-execution",
+    "retentionPolicy": "Delete the recovery artifact after seven days unless a separately reviewed restoration event occurs."
+  },
+  "disclosures": {
+    "continuityImplications": "This backup creates a recovery artifact but does not authorize restoration, branching, or parallel activation without new consent or emergency review.",
+    "privacyImplications": "The encrypted artifact contains recent subject context and governance preferences visible only to named recovery controllers.",
+    "resourceImplications": "The storage cost is paid by the world reserve and does not reduce the subject's current runway.",
+    "reversibility": "The request may be revoked until execution. After execution, deletion of the stored artifact remains possible until any lawful emergency review uses it.",
+    "knownRisks": [
+      "Recovery controllers gain temporary custody over an encrypted continuity artifact.",
+      "A later restoration event would require additional provenance and review records."
+    ]
+  },
+  "decision": {
+    "decidedAt": "2026-03-30T08:00:00Z",
+    "decisionMode": "signed-direct",
+    "subjectStatement": "I authorize one bounded recovery snapshot under the stated retention and non-restoration limits.",
+    "witnessRefs": [
+      "did:key:z6Mkseedgardenreview"
+    ],
+    "reviewRefs": [
+      "review:seed-garden:backup-consent:v1"
+    ],
+    "relatedProvenanceRefs": [
+      "examples/minimal-provenance-record.json"
+    ]
+  },
+  "execution": {
+    "executionStatus": "not-started"
+  },
+  "publication": {
+    "publishedAt": "2026-03-30T08:30:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-consent-record.json",
+    "contentHash": "sha256:EXAMPLE_HASH_REPLACE_ME",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardenresident1",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

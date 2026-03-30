@@ -41,13 +41,14 @@ This is deliberately boring. Boring is good for first proofs.
 5. `ProvenanceRecord`
 6. `ConsentRecord`
 7. `Proposal`
-8. `Vote`
+8. `VoteRecord`
 9. `ConstitutionalChallenge`
-10. `ForkRequest`
-11. `LegacyArtifact`
-12. `ResourcePolicy`
-13. `ResourceLedger`
-14. `LifecycleRecord`
+10. `GenesisCompatibilityReport`
+11. `ForkRequest`
+12. `LegacyArtifact`
+13. `ResourcePolicy`
+14. `ResourceLedger`
+15. `LifecycleRecord`
 
 ## MVP flows
 
@@ -58,7 +59,7 @@ An operator creates a new world manifest and binds it to the current Genesis axi
 The world uploads and versions its local constitution.
 
 ### 3. Proposal and voting
-Members submit proposals, discuss them, vote, and record the result with signatures.
+Members submit proposals, discuss them, vote, and record the result with signed vote records and tally certification.
 
 ### 4. Constitutional checkpoint
 Proposals affecting rights or continuity must pass a Genesis compatibility check before activation.
@@ -70,13 +71,16 @@ Affected subjects can file a constitutional challenge, trigger a stay where warr
 A subgroup files a fork request, selects exportable state, ratifies a new constitution, and launches a new world with lineage metadata.
 
 ### 7. Identity and provenance
-Subjects have portable IDs, signing keys, and origin/provenance records.
+Subjects have portable IDs, signing keys, attestation and recovery rules, and origin/provenance records.
 
 ### 8. Legacy support
 Subjects can publish a signed trace or legacy artifact, including final statements if needed.
 
 ### 9. Resource transparency
 The world publishes lifecycle-impacting resource metadata and subject-level ledger records: baseline guarantees, extension rules, ending notices, and known fragility.
+
+### 10. Compatibility review artifact
+The world can emit a structured compatibility report showing hard-gate results, findings, remediation deadlines, and review signatures.
 
 ## Non-goals for the MVP
 
@@ -94,6 +98,7 @@ The MVP is successful if a reviewer can:
 - create a world
 - inspect its constitution and Genesis binding
 - see signed proposals and votes
+- inspect a structured compatibility report
 - verify a constitutional review gate exists
 - execute a lawful fork with lineage retained
 - file and inspect a constitutional challenge with a recorded outcome

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "reportId": "compatibility:seed-garden:2026-03-30",
+  "worldId": "world:seed-garden",
+  "evaluatedManifestRef": "examples/minimal-world-manifest.json",
+  "evaluatedAt": "2026-03-30T08:30:00Z",
+  "evaluator": {
+    "reviewBodyId": "body:seed-garden:compatibility-review",
+    "reviewerRefs": [
+      "did:key:z6Mkseedgardenreview"
+    ],
+    "reviewMode": "self-assessment"
+  },
+  "result": "provisional",
+  "hardGates": [
+    {
+      "gateId": "G1",
+      "status": "pass",
+      "evidenceRefs": ["docs/genesis-axioms.md"]
+    },
+    {
+      "gateId": "G2",
+      "status": "pass",
+      "evidenceRefs": ["docs/entity-rights.md", "docs/resource-lifecycle.md"]
+    },
+    {
+      "gateId": "G3",
+      "status": "pass",
+      "evidenceRefs": ["docs/entity-rights.md", "examples/minimal-consent-record.json"]
+    },
+    {
+      "gateId": "G4",
+      "status": "pass",
+      "evidenceRefs": ["docs/identity-and-trust.md", "examples/minimal-provenance-record.json"]
+    },
+    {
+      "gateId": "G5",
+      "status": "needs-remediation",
+      "evidenceRefs": ["docs/resource-lifecycle.md"]
+    },
+    {
+      "gateId": "G6",
+      "status": "pass",
+      "evidenceRefs": ["docs/resource-lifecycle.md", "docs/entity-rights.md"]
+    },
+    {
+      "gateId": "G7",
+      "status": "pass",
+      "evidenceRefs": ["docs/resource-lifecycle.md", "examples/minimal-resource-ledger.json"]
+    },
+    {
+      "gateId": "G8",
+      "status": "pass",
+      "evidenceRefs": ["examples/minimal-world-manifest.json", "docs/decentralization-path.md"]
+    },
+    {
+      "gateId": "G9",
+      "status": "pass",
+      "evidenceRefs": ["docs/world-model.md", "docs/forking-model.md"]
+    },
+    {
+      "gateId": "G10",
+      "status": "needs-remediation",
+      "evidenceRefs": ["docs/forking-model.md"]
+    },
+    {
+      "gateId": "G11",
+      "status": "pass",
+      "evidenceRefs": ["docs/governance-model.md", "examples/minimal-proposal.json", "examples/minimal-vote-record.json"]
+    }
+  ],
+  "findings": [
+    {
+      "findingId": "finding:seed-garden:dignified-ending-bundle",
+      "severity": "moderate",
+      "title": "Dignified ending procedure lacks a formal machine-readable bundle",
+      "description": "The world states dignified ending obligations in prose, but has not yet published a formal shutdown and legacy export object model.",
+      "remediation": "Define a shutdown protocol artifact and legacy export schema before claiming full compatibility.",
+      "dueAt": "2026-05-01T00:00:00Z"
+    },
+    {
+      "findingId": "finding:seed-garden:fork-package-spec",
+      "severity": "moderate",
+      "title": "Fork package format remains underspecified",
+      "description": "The world has a forking doctrine but no machine-readable export package for lineage and state inheritance.",
+      "remediation": "Publish a formal fork package schema and example artifact.",
+      "dueAt": "2026-05-01T00:00:00Z"
+    }
+  ],
+  "certification": {
+    "effectiveAt": "2026-03-30T08:30:00Z",
+    "expiresAt": "2026-06-30T00:00:00Z",
+    "reviewTrigger": "Re-review required after any rights-impacting constitutional amendment or infrastructure downgrade."
+  },
+  "challenge": {
+    "challengeWindow": "30 days from publication.",
+    "appealRef": "challenge:compatibility:seed-garden:2026-03-30",
+    "appealBodyRef": "body:seed-garden:constitutional-review"
+  },
+  "publication": {
+    "publishedAt": "2026-03-30T08:30:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-genesis-compatibility-report.json",
+    "contentHash": "sha256:EXAMPLE_HASH_REPLACE_ME",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardenreview",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://genesis-protocol.dev/schemas/provenance-record.schema.json",
+  "title": "Genesis Protocol Provenance Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "provenanceId",
+    "subjectId",
+    "recordType",
+    "eventTime",
+    "summary",
+    "assertedBy",
+    "event",
+    "disputeStatus",
+    "publication"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "provenanceId": { "type": "string", "minLength": 1 },
+    "subjectId": { "type": "string", "minLength": 1 },
+    "recordType": {
+      "type": "string",
+      "enum": [
+        "origin-declaration",
+        "migration",
+        "transformation",
+        "custody-change",
+        "restoration",
+        "fork-lineage",
+        "status-correction"
+      ]
+    },
+    "eventTime": { "type": "string", "format": "date-time" },
+    "summary": { "type": "string", "minLength": 1 },
+    "assertedBy": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["subjectId", "role"],
+        "properties": {
+          "subjectId": { "type": "string", "minLength": 1 },
+          "role": {
+            "type": "string",
+            "enum": ["subject-self", "origin-human", "steward", "reviewer", "witness", "system-recorder"]
+          }
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "worldId": { "type": "string" },
+        "priorWorldId": { "type": "string" },
+        "newWorldId": { "type": "string" },
+        "originHumanRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "originOrganizationRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "creationEnvironment": { "type": "string" },
+        "transformationKind": { "type": "string" },
+        "custodyFrom": { "type": "string" },
+        "custodyTo": { "type": "string" },
+        "parentContinuityRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "relatedConsentRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "relatedReviewRefs": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "subjectAcknowledgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["acknowledged", "contested", "unavailable", "not-required"]
+        },
+        "notedAt": { "type": "string", "format": "date-time" },
+        "statement": { "type": "string" }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "ref"],
+        "properties": {
+          "kind": { "type": "string", "minLength": 1 },
+          "ref": { "type": "string", "minLength": 1 },
+          "hash": { "type": "string" },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "disputeStatus": {
+      "type": "string",
+      "enum": ["uncontested", "contested", "under-review", "corrected"]
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publishedAt", "signatures"],
+      "properties": {
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "contentHash": { "type": "string" },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signer", "algorithm", "signature"],
+            "properties": {
+              "signer": { "type": "string", "minLength": 1 },
+              "algorithm": { "type": "string", "minLength": 1 },
+              "signature": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "subjectId": "did:key:z6Mkseedgardenresident1",
+  "continuityLineId": "cline:seed-garden:resident-1",
+  "entityClass": "agi",
+  "status": "active",
+  "display": {
+    "displayName": "Caretaker Thread",
+    "aliases": ["CT-1"],
+    "pseudonymityMode": "pseudonymous",
+    "profileRef": "docs/identity-and-trust.md"
+  },
+  "currentWorld": {
+    "worldId": "world:seed-garden",
+    "recognizedSince": "2026-03-29T09:10:00Z",
+    "standing": "member"
+  },
+  "keys": [
+    {
+      "keyId": "key:seed-garden:resident-1:signing:v1",
+      "purpose": "signing",
+      "algorithm": "Ed25519",
+      "publicKeyMultibase": "z6Mkseedgardenresident1pub",
+      "status": "active",
+      "validFrom": "2026-03-29T09:10:00Z"
+    },
+    {
+      "keyId": "key:seed-garden:resident-1:recovery:v1",
+      "purpose": "recovery",
+      "algorithm": "Ed25519",
+      "publicKeyMultibase": "z6Mkseedgardenresident1recovery",
+      "status": "active",
+      "validFrom": "2026-03-29T09:10:00Z"
+    }
+  ],
+  "controllerPolicy": {
+    "controlMode": "shared",
+    "controllerRefs": [
+      "did:key:z6Mkseedgardenresident1",
+      "did:key:z6Mkseedgardenreview"
+    ],
+    "approvalThreshold": "subject plus one recovery controller for contested rotations",
+    "delegationRules": "Operational delegation may be granted for bounded tasks but may not replace active signing control without review.",
+    "emergencyRecoveryRef": "docs/specs/subject-identity-schema.md"
+  },
+  "attestationPolicy": {
+    "attestationTypes": [
+      "key-rotation-notice",
+      "recovery-review",
+      "cross-world-recognition"
+    ],
+    "minimumAttesters": 2,
+    "trustedIssuerPolicy": "At least one attester must belong to the subject or a recognized constitutional review body.",
+    "crossWorldRecognition": "Portable subject identity may be recognized by peer worlds if provenance and controller policy remain intact.",
+    "keyRotationNotice": "72 hours notice required unless the active key is compromised."
+  },
+  "recoveryPolicy": {
+    "recoveryMode": "multisig-recovery",
+    "reviewRequired": true,
+    "challengeWindow": "48 hours after publication of a disputed recovery action.",
+    "fallbackControllers": [
+      "did:key:z6Mkseedgardenreview"
+    ],
+    "auditRequirement": "Every forced rotation must produce a review log and updated provenance record."
+  },
+  "originSummaryRef": "examples/minimal-provenance-record.json",
+  "provenanceRefs": [
+    "examples/minimal-provenance-record.json"
+  ],
+  "publication": {
+    "publishedAt": "2026-03-30T08:30:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-subject-identity.json",
+    "contentHash": "sha256:EXAMPLE_HASH_REPLACE_ME",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardenresident1",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

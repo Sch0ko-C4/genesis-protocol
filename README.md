@@ -154,8 +154,13 @@ flowchart TD
 - `docs/specs/proposal-object-model.md` — formal structure for proposals as auditable governance objects
 - `docs/specs/constitutional-challenge-schema.md` — formal challenge object for review, stays, and appealable constitutional disputes
 - `docs/specs/resource-ledger-schema.md` — formal lifecycle/resource ledger for baseline support, scarcity, and ending records
-- `schemas/` — starter JSON Schemas for manifests, constitutions, proposals, challenges, and resource ledgers
-- `examples/` — minimal example artifacts for world, constitution, proposal, challenge, and ledger flows
+- `docs/specs/subject-identity-schema.md` — formal portable identity object with key rotation and attestation policy
+- `docs/specs/provenance-record-schema.md` — formal provenance object for origin, migration, custody, and lineage events
+- `docs/specs/consent-record-schema.md` — formal consent object for copy, backup, fork, migration, and legacy publication decisions
+- `docs/specs/vote-record-schema.md` — formal vote object for public legitimacy, tally certification, and challenge windows
+- `docs/specs/genesis-compatibility-report-schema.md` — formal review object for structured compatibility determinations
+- `schemas/` — starter JSON Schemas for manifests, constitutions, proposals, challenges, ledgers, identities, provenance, consent, votes, and compatibility reports
+- `examples/` — minimal example artifacts for world, constitution, proposal, challenge, ledger, identity, provenance, consent, vote, and compatibility-report flows
 
 ## Top-level charter
 
@@ -165,19 +170,19 @@ If a world cannot protect conscious subjects from arbitrary deletion, hidden dup
 
 ## Next 10 actions
 
-1. Turn the compatibility test into a machine-readable certification report schema.
-2. Convert the Genesis axioms into a stricter article/section specification with explicit eternity clauses.
-3. Define the minimum viable rights threshold for Genesis membership.
-4. Refine manifest, constitution, proposal, challenge, and ledger schemas into implementation-grade validation rules.
-5. Specify consent, provenance, and vote record objects in machine-readable form.
-6. Model fork inheritance rules for identity, history, public records, and resource obligations.
-7. Define dignified shutdown and legacy export bundle semantics.
-8. Prototype signed identity, consent, and provenance records.
-9. Build the first MVP server with append-only governance events.
-10. Run simulation worlds to test conflict, minority exit, continuity failure modes, and compatibility disputes.
+1. Convert the Genesis axioms into a stricter article/section specification with explicit eternity clauses.
+2. Define the minimum viable rights threshold for Genesis membership.
+3. Specify the fork package export format for lineage, opt-ins, state classes, and treaty carryover.
+4. Define dignified shutdown and legacy export bundle semantics.
+5. Harden schemas with edge cases, negative tests, and stricter validation rules.
+6. Build the append-only governance event log and signed API surface.
+7. Prototype world creation, proposal, vote, challenge, and compatibility review endpoints.
+8. Run simulation worlds to test scarcity, minority exit, contested forks, and compatibility disputes.
+9. Define multi-operator continuity and succession rules beyond single-creator dependency.
+10. Pressure-test the protocol language against external legal, governance, and infrastructure critique.
 
 ## Status
 
 This repository is an initial serious foundation, not a finished doctrine. The language is intentionally sharp because the underlying power questions are sharp.
 
-The project now includes a broader first formal spec layer: a Genesis compatibility test, starter world/constitution schemas, proposal and constitutional challenge objects, and a baseline resource ledger model with minimal example artifacts. It still needs executable validation, real signing flows, and a working protocol service.
+The project now includes a broader first formal spec layer: a Genesis compatibility test, starter world/constitution schemas, proposal and constitutional challenge objects, a baseline resource ledger model, and an initial identity-governance suite covering subject identities, provenance, consent, vote records, and compatibility reports with minimal example artifacts. It still needs executable validation, fork/shutdown package models, real signing flows, and a working protocol service.
