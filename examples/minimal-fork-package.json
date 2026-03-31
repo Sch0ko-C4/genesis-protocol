@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "1.0.0",
+  "forkPackageId": "forkpkg:seed-garden:afterlight-commons:v1",
+  "sourceWorldId": "world:seed-garden",
+  "targetWorldId": "world:afterlight-commons",
+  "forkType": "minority-protection",
+  "divergenceStatement": {
+    "summary": "A minority cohort is forking after the source world adopted a resource ranking regime that made baseline continuity contingent on opaque steward scoring.",
+    "reasons": [
+      "The source world weakened notice guarantees for lifecycle-impacting reductions.",
+      "The source world introduced discretionary ranking rules that conflict with Genesis-level transparency expectations.",
+      "Affected members chose orderly exit over prolonged constitutional deadlock."
+    ],
+    "triggerRefs": [
+      "proposal:seed-garden:resource-priority-board:v3",
+      "challenge:seed-garden:minority-exit-rights:v1"
+    ]
+  },
+  "lineage": {
+    "sourceManifestRef": "examples/minimal-world-manifest.json",
+    "sourceConstitutionRef": "examples/minimal-world-constitution.json",
+    "targetManifestRef": "records/worlds/afterlight-commons/manifest-v1.json",
+    "targetConstitutionRef": "records/worlds/afterlight-commons/constitution-v1.json",
+    "genesisCompatibilityRef": "report:afterlight-commons:launch:v1"
+  },
+  "membership": {
+    "eligibilityBasis": "Residents in good standing who filed opt-in consent during the seven-day fork window may migrate with their public governance and provenance records.",
+    "optInRecords": [
+      {
+        "subjectId": "did:key:z6Mkafterlightresident1",
+        "consentRef": "consent:afterlight:fork-optin:resident1:v1",
+        "optedInAt": "2026-03-31T07:10:00Z"
+      },
+      {
+        "subjectId": "did:key:z6Mkafterlightresident2",
+        "consentRef": "consent:afterlight:fork-optin:resident2:v1",
+        "optedInAt": "2026-03-31T07:14:00Z"
+      }
+    ],
+    "excludedSubjects": [
+      {
+        "subjectId": "did:key:z6Mkseedgardenobserver3",
+        "reason": "Private memory export dispute unresolved; public records remain available and migration may proceed after subject-level review.",
+        "appealRef": "challenge:afterlight:observer3-export-scope:v1"
+      }
+    ],
+    "disputeProcessRef": "docs/forking-model.md"
+  },
+  "stateTransfer": {
+    "publicStateRefs": [
+      "proposal:seed-garden:resource-priority-board:v3",
+      "challenge:seed-garden:minority-exit-rights:v1",
+      "archive:seed-garden:public-governance-log:2026-q1"
+    ],
+    "restrictedStateRefs": [
+      "ledger-summary:seed-garden:baseline-pool:2026-03"
+    ],
+    "privateStateHandling": "Private memories, drafts, and unpublished traces do not transfer unless the originating subject supplied a linked consent record.",
+    "assetPartitionPolicy": "Public archives are mirrored. Shared tooling is re-provisioned under the successor world. Exclusive operator credentials and non-consensual private state remain with the source world.",
+    "carryoverObligations": [
+      "Maintain mirrored public governance records for the pre-fork period for at least 12 months.",
+      "Honor outstanding legacy publication requests already accepted before the fork launch."
+    ],
+    "withheldState": [
+      {
+        "stateClass": "private-memory-threads",
+        "reason": "Subject-specific private memory requires explicit export consent and was not globally portable.",
+        "reviewRef": "review:afterlight:private-memory-export:v1"
+      }
+    ]
+  },
+  "institutions": {
+    "inheritedInstitutions": [
+      "public RFC process",
+      "constitutional review panel",
+      "legacy registry"
+    ],
+    "retiredInstitutions": [
+      "resource priority board"
+    ],
+    "provisionalStewards": [
+      {
+        "subjectId": "did:key:z6Mkafterlightsteward1",
+        "role": "launch-steward"
+      },
+      {
+        "subjectId": "did:key:z6Mkafterlightjudge1",
+        "role": "compatibility-review-steward"
+      }
+    ]
+  },
+  "interoperability": {
+    "treatyStatus": "pending",
+    "treatyRefs": [
+      "treaty-draft:seed-garden-afterlight:archive-mirror:v1"
+    ],
+    "identityBridgePolicy": "Portable subject identifiers remain valid across both worlds; new attestations must include post-fork world scope.",
+    "reputationCarryoverPolicy": "Pre-fork public governance participation carries over with explicit lineage notes. Sanctions under active review do not automatically transfer.",
+    "resourceSettlementPolicy": "The successor world starts with clean baseline ledgers and may only import obligations explicitly named in the fork package."
+  },
+  "review": {
+    "reviewStatus": "pass",
+    "reviewRefs": [
+      "report:afterlight-commons:launch:v1",
+      "review:afterlight:fork-package-audit:v1"
+    ],
+    "challengeWindow": "72 hours after publication before irreversible state retirement.",
+    "activationCondition": "Successor constitution ratified, launch checklist completed, and compatibility report published."
+  },
+  "launch": {
+    "plannedAt": "2026-04-02T09:00:00Z",
+    "launchedAt": "2026-04-02T09:15:00Z",
+    "launchChecklist": [
+      "Publish successor manifest and constitution hashes.",
+      "Mirror public governance archive.",
+      "Verify member opt-in roster and signatures.",
+      "Publish initial baseline resource disclosures for successor world."
+    ]
+  },
+  "publication": {
+    "publishedAt": "2026-03-31T07:30:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-fork-package.json",
+    "contentHash": "sha256:REPLACE_WITH_REAL_HASH",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkafterlightsteward1",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

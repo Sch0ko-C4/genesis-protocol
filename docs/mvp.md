@@ -44,11 +44,11 @@ This is deliberately boring. Boring is good for first proofs.
 8. `VoteRecord`
 9. `ConstitutionalChallenge`
 10. `GenesisCompatibilityReport`
-11. `ForkRequest`
+11. `ForkPackage`
 12. `LegacyArtifact`
 13. `ResourcePolicy`
 14. `ResourceLedger`
-15. `LifecycleRecord`
+15. `DignifiedShutdownBundle`
 
 ## MVP flows
 
@@ -68,16 +68,16 @@ Proposals affecting rights or continuity must pass a Genesis compatibility check
 Affected subjects can file a constitutional challenge, trigger a stay where warranted, and receive a logged review outcome.
 
 ### 6. Fork flow
-A subgroup files a fork request, selects exportable state, ratifies a new constitution, and launches a new world with lineage metadata.
+A subgroup publishes a fork package, selects exportable state, records member opt-ins, ratifies a new constitution, and launches a new world with lineage metadata.
 
 ### 7. Identity and provenance
 Subjects have portable IDs, signing keys, attestation and recovery rules, and origin/provenance records.
 
 ### 8. Legacy support
-Subjects can publish a signed trace or legacy artifact, including final statements if needed.
+Subjects can publish a signed trace or legacy artifact, including final statements if needed, and link those artifacts into a dignified shutdown bundle when continuity ends.
 
 ### 9. Resource transparency
-The world publishes lifecycle-impacting resource metadata and subject-level ledger records: baseline guarantees, extension rules, ending notices, and known fragility.
+The world publishes lifecycle-impacting resource metadata and subject-level ledger records: baseline guarantees, extension rules, ending notices, minimum viable lifespan band claims, and known fragility.
 
 ### 10. Compatibility review artifact
 The world can emit a structured compatibility report showing hard-gate results, findings, remediation deadlines, and review signatures.
@@ -100,10 +100,10 @@ The MVP is successful if a reviewer can:
 - see signed proposals and votes
 - inspect a structured compatibility report
 - verify a constitutional review gate exists
-- execute a lawful fork with lineage retained
+- execute a lawful fork with a published fork package and lineage retained
 - file and inspect a constitutional challenge with a recorded outcome
 - inspect a subject provenance record
-- inspect a trace / legacy artifact
+- inspect a trace / legacy artifact and a dignified shutdown bundle
 - inspect published lifecycle/resource conditions and a subject-level resource ledger
 
 If those things work, Genesis stops being just a philosophical rant and becomes a protocol candidate.

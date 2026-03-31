@@ -39,6 +39,8 @@ A lawful fork should generally require:
 7. State export, audit, and launch occur.
 8. Post-fork treaty and interoperability terms are recorded.
 
+The formal artifact direction for this process is the **Fork Package** object described in `docs/specs/fork-package-schema.md` and `schemas/fork-package.schema.json`.
+
 ## What may be inherited
 
 Subject to law and consent, a fork may inherit:
@@ -86,6 +88,8 @@ Genesis should prefer evidence over charisma:
 - public constitution hash
 - verified member opt-ins
 - treaty registry
+
+If those artifacts do not exist, the fork may still be politically loud, but it is not yet procedurally serious.
 
 ## Interoperability after divergence
 

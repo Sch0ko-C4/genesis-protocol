@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://genesis-protocol.dev/schemas/fork-package.schema.json",
+  "title": "Genesis Protocol Fork Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "forkPackageId",
+    "sourceWorldId",
+    "targetWorldId",
+    "forkType",
+    "divergenceStatement",
+    "lineage",
+    "membership",
+    "stateTransfer",
+    "institutions",
+    "interoperability",
+    "review",
+    "launch",
+    "publication"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "forkPackageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceWorldId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "targetWorldId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "forkType": {
+      "type": "string",
+      "enum": ["full", "partial", "minority-protection", "emergency-secession", "experimental-branch"]
+    },
+    "divergenceStatement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "reasons"],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "triggerRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceManifestRef",
+        "sourceConstitutionRef",
+        "targetManifestRef",
+        "targetConstitutionRef",
+        "genesisCompatibilityRef"
+      ],
+      "properties": {
+        "sourceManifestRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceConstitutionRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetManifestRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetConstitutionRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "genesisCompatibilityRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parentForkPackageRef": {
+          "type": "string"
+        }
+      }
+    },
+    "membership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eligibilityBasis", "optInRecords", "disputeProcessRef"],
+      "properties": {
+        "eligibilityBasis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "optInRecords": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["subjectId", "consentRef", "optedInAt"],
+            "properties": {
+              "subjectId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "consentRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "optedInAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "excludedSubjects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["subjectId", "reason"],
+            "properties": {
+              "subjectId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "appealRef": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "disputeProcessRef": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "stateTransfer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publicStateRefs", "privateStateHandling", "assetPartitionPolicy"],
+      "properties": {
+        "publicStateRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "restrictedStateRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "privateStateHandling": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assetPartitionPolicy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "carryoverObligations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "withheldState": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["stateClass", "reason"],
+            "properties": {
+              "stateClass": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reviewRef": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "institutions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inheritedInstitutions", "provisionalStewards"],
+      "properties": {
+        "inheritedInstitutions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "retiredInstitutions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "provisionalStewards": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["subjectId", "role"],
+            "properties": {
+              "subjectId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "interoperability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["treatyStatus", "identityBridgePolicy", "reputationCarryoverPolicy"],
+      "properties": {
+        "treatyStatus": {
+          "type": "string",
+          "enum": ["none", "pending", "negotiating", "active"]
+        },
+        "treatyRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "identityBridgePolicy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reputationCarryoverPolicy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resourceSettlementPolicy": {
+          "type": "string"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewStatus", "challengeWindow", "activationCondition"],
+      "properties": {
+        "reviewStatus": {
+          "type": "string",
+          "enum": ["pending", "conditional-pass", "pass", "failed"]
+        },
+        "reviewRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "challengeWindow": {
+          "type": "string",
+          "minLength": 1
+        },
+        "activationCondition": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "launch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plannedAt", "launchChecklist"],
+      "properties": {
+        "plannedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "launchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "launchChecklist": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publishedAt", "signatures"],
+      "properties": {
+        "publishedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "canonicalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "contentHash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signer", "algorithm", "signature"],
+            "properties": {
+              "signer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "algorithm": {
+                "type": "string",
+                "minLength": 1
+              },
+              "signature": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

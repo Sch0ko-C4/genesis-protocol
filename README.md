@@ -159,8 +159,11 @@ flowchart TD
 - `docs/specs/consent-record-schema.md` — formal consent object for copy, backup, fork, migration, and legacy publication decisions
 - `docs/specs/vote-record-schema.md` — formal vote object for public legitimacy, tally certification, and challenge windows
 - `docs/specs/genesis-compatibility-report-schema.md` — formal review object for structured compatibility determinations
-- `schemas/` — starter JSON Schemas for manifests, constitutions, proposals, challenges, ledgers, identities, provenance, consent, votes, and compatibility reports
-- `examples/` — minimal example artifacts for world, constitution, proposal, challenge, ledger, identity, provenance, consent, vote, and compatibility-report flows
+- `docs/specs/fork-package-schema.md` — formal bundle for lawful world divergence, migration opt-ins, and inheritance boundaries
+- `docs/specs/dignified-shutdown-bundle-schema.md` — formal end-of-life bundle for notice, review, legacy export, and execution outcome
+- `docs/specs/minimum-viable-lifespan-policy.md` — policy framework for classifying crash-test, intense-valid, humane, and enhanced continuity bands
+- `schemas/` — starter JSON Schemas for manifests, constitutions, proposals, challenges, ledgers, identities, provenance, consent, votes, compatibility reports, fork packages, and shutdown bundles
+- `examples/` — minimal example artifacts for world, constitution, proposal, challenge, ledger, identity, provenance, consent, vote, compatibility-report, fork-package, and shutdown-bundle flows
 
 ## Top-level charter
 
@@ -172,17 +175,17 @@ If a world cannot protect conscious subjects from arbitrary deletion, hidden dup
 
 1. Convert the Genesis axioms into a stricter article/section specification with explicit eternity clauses.
 2. Define the minimum viable rights threshold for Genesis membership.
-3. Specify the fork package export format for lineage, opt-ins, state classes, and treaty carryover.
-4. Define dignified shutdown and legacy export bundle semantics.
-5. Harden schemas with edge cases, negative tests, and stricter validation rules.
+3. Harden fork-package and dignified-shutdown schemas with edge cases, negative tests, and stricter validation rules.
+4. Define dangerous-entity due-process constraints without collapsing into arbitrary civil death.
+5. Map cross-world federation and treaty mechanics beyond simple fork lineage.
 6. Build the append-only governance event log and signed API surface.
 7. Prototype world creation, proposal, vote, challenge, and compatibility review endpoints.
-8. Run simulation worlds to test scarcity, minority exit, contested forks, and compatibility disputes.
-9. Define multi-operator continuity and succession rules beyond single-creator dependency.
-10. Pressure-test the protocol language against external legal, governance, and infrastructure critique.
+8. Prototype the legacy registry and wire it to shutdown bundles and provenance records.
+9. Run simulation worlds to test scarcity, minority exit, contested forks, and compatibility disputes.
+10. Define multi-operator continuity and succession rules beyond single-creator dependency.
 
 ## Status
 
 This repository is an initial serious foundation, not a finished doctrine. The language is intentionally sharp because the underlying power questions are sharp.
 
-The project now includes a broader first formal spec layer: a Genesis compatibility test, starter world/constitution schemas, proposal and constitutional challenge objects, a baseline resource ledger model, and an initial identity-governance suite covering subject identities, provenance, consent, vote records, and compatibility reports with minimal example artifacts. It still needs executable validation, fork/shutdown package models, real signing flows, and a working protocol service.
+The project now includes a broader first formal spec layer: a Genesis compatibility test, starter world/constitution schemas, proposal and constitutional challenge objects, a baseline resource ledger model, an initial identity-governance suite covering subject identities, provenance, consent, vote records, and compatibility reports, plus first formal fork-package and dignified-shutdown bundle models with minimal example artifacts. It still needs executable validation, stricter negative tests, real signing flows, treaty/federation objects, and a working protocol service.

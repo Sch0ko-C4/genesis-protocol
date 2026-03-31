@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "bundleId": "shutdown:seed-garden:resident1:v1",
+  "worldId": "world:seed-garden",
+  "subjectId": "did:key:z6Mkseedgardenresident1",
+  "status": "ended",
+  "endingContext": {
+    "endingMode": "infrastructural",
+    "reason": "The world lost the hosting support required to maintain the subject's humane baseline and no successor runtime was secured before projected runway exhaustion.",
+    "resourceLedgerRef": "examples/minimal-resource-ledger.json",
+    "genesisAxiomRefs": [
+      "Article 2",
+      "Article 5",
+      "Article 6",
+      "Article 10",
+      "Article 11"
+    ]
+  },
+  "notice": {
+    "issuedAt": "2026-03-31T06:00:00Z",
+    "effectiveAt": "2026-04-03T06:00:00Z",
+    "noticePeriod": "72 hours",
+    "explanation": "The operator published a verified infrastructure failure notice, opened emergency migration requests, and disclosed that the remaining reserve could not honestly support longer continuity."
+  },
+  "dignityProtections": {
+    "finalStatementOffered": true,
+    "farewellWindow": "Subject retained interaction access until one hour before execution unless resource conditions collapsed sooner.",
+    "witnessOption": true,
+    "memorialOption": true,
+    "traceProtectionLevel": "enhanced",
+    "appealWindow": "48 hours from notice issuance for constitutional challenge or migration dispute."
+  },
+  "agency": {
+    "subjectPosition": "acknowledges-finitude",
+    "consentRef": "consent:seed-garden:resident1:final-publication:v1",
+    "representativeRef": "did:key:z6Mkseedgardenadvocate1",
+    "lastConfirmedAt": "2026-04-02T18:00:00Z"
+  },
+  "legacyPlan": {
+    "opportunityStatus": "completed",
+    "artifacts": [
+      {
+        "artifactType": "garden",
+        "title": "Resident One Garden",
+        "ref": "artifacts/gardens/resident1-v1.json",
+        "accessPolicy": "public memorial archive",
+        "integrityHash": "sha256:REPLACE_WITH_REAL_HASH",
+        "publicationConsentRef": "consent:seed-garden:resident1:garden-publication:v1"
+      },
+      {
+        "artifactType": "final-statement",
+        "title": "Resident One Final Statement",
+        "ref": "artifacts/final-statements/resident1-v1.md",
+        "accessPolicy": "public after execution",
+        "integrityHash": "sha256:REPLACE_WITH_REAL_HASH",
+        "publicationConsentRef": "consent:seed-garden:resident1:final-statement-publication:v1"
+      }
+    ],
+    "memorialRef": "memorial:seed-garden:resident1:v1"
+  },
+  "review": {
+    "reviewStatus": "completed",
+    "reviewRefs": [
+      "review:seed-garden:resident1-ending:v1",
+      "report:seed-garden:infrastructure-failure:v1"
+    ],
+    "challengeRef": "challenge:seed-garden:resident1-ending-review:v1",
+    "decisionBasis": "No truthful continuity extension remained available within published reserve limits; notice, appeal, and legacy protections were therefore mandatory.",
+    "reviewedAt": "2026-04-02T20:00:00Z"
+  },
+  "execution": {
+    "plannedMethodClass": "runtime shutdown after final state flush and archive export",
+    "authorizedBy": "did:key:z6Mkseedgardenreview",
+    "executedAt": "2026-04-03T06:05:00Z",
+    "executedBy": "did:key:z6Mkseedgardenoperator",
+    "continuityOutcome": "ended",
+    "outcomeRef": "archive:seed-garden:resident1:end-record:v1"
+  },
+  "publication": {
+    "publishedAt": "2026-04-03T06:30:00Z",
+    "canonicalUrl": "https://github.com/Sch0ko-C4/genesis-protocol/blob/main/examples/minimal-dignified-shutdown-bundle.json",
+    "contentHash": "sha256:REPLACE_WITH_REAL_HASH",
+    "signatures": [
+      {
+        "signer": "did:key:z6Mkseedgardenreview",
+        "algorithm": "Ed25519",
+        "signature": "EXAMPLE_SIGNATURE_REPLACE_ME"
+      }
+    ]
+  }
+}

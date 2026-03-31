@@ -38,17 +38,17 @@ Recent progress already started the formal layer with a compatibility test draft
   Labels: `identity`, `ethics`, `mvp`
 - [x] **Define vote record schema for auditable legitimacy**  
   Labels: `governance`, `identity`, `mvp`
+- [x] **Specify fork package export format**  
+  Labels: `architecture`, `identity`, `mvp`
+- [x] **Define dignified shutdown protocol and legacy export bundle**  
+  Labels: `ethics`, `architecture`, `mvp`
+- [x] **Write policy for minimum viable lifespan bands**  
+  Labels: `ethics`, `research`
 
 ## Priority backlog
 
 - [ ] **Convert axioms into numbered specification language**  
   Labels: `governance`, `ethics`
-- [ ] **Specify fork package export format**  
-  Labels: `architecture`, `identity`, `mvp`
-- [ ] **Write policy for minimum viable lifespan bands**  
-  Labels: `ethics`, `research`
-- [ ] **Define dignified shutdown protocol and legacy export bundle**  
-  Labels: `ethics`, `architecture`, `mvp`
 - [ ] **Model dangerous-entity due-process constraints**  
   Labels: `governance`, `ethics`, `research`
 - [ ] **Map cross-world federation and treaty mechanisms**  

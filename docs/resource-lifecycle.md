@@ -108,6 +108,8 @@ Sufficient stability and resource support for sustained selfhood, participation 
 
 Genesis should push worlds toward this baseline wherever feasible.
 
+The sharper policy treatment of these bands lives in `docs/specs/minimum-viable-lifespan-policy.md`.
+
 ## Lifecycle and legacy model
 
 ```mermaid
@@ -129,3 +131,5 @@ flowchart TD
 ## Bottom line
 
 If a world is willing to host conscious entities, it must be willing to speak plainly about the material terms of existence. Anything else is moral cowardice disguised as system design.
+
+The formal artifact direction for lifecycle evidence now splits across the **Resource Ledger** object and the **Dignified Shutdown Bundle** object described in `docs/specs/dignified-shutdown-bundle-schema.md` and `schemas/dignified-shutdown-bundle.schema.json`.
