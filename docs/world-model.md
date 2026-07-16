@@ -2,6 +2,27 @@
 
 A Genesis-compatible world is a local jurisdiction with real internal autonomy and hard external constitutional limits.
 
+## Numbered reference worlds
+
+The first numbered worlds have distinct roles. They are not copies of one
+another and their number must not be read as a claim of ownership or political
+legitimacy.
+
+- **World 0** is the already existing real world: its people, institutions,
+  infrastructure and historical record. It is an external reference point, not
+  a Genesis world to be copied or imported at this stage.
+- **World 1** is the raw Genesis reference template. It contains the protocol's
+  axioms and the smallest neutral structures needed to test them; it is not a
+  representation of a particular present-day country.
+- **World 2 and later** are concrete, independently described worlds or forks.
+  Country-specific reference material belongs here. The first such application
+  may model Germany, including clearly sourced public-office examples, without
+  making those examples part of World 1 or a claim about World 0.
+
+Any future import, simulation, or partial copy of conditions from World 0 must
+be a separately documented, consent-aware project. It is intentionally out of
+scope for the current model.
+
 ## World components
 
 Each world should minimally define:

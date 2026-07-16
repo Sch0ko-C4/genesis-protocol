@@ -1,0 +1,12 @@
+{
+  "datasetVersion": "2026-07-16.1",
+  "builtAt": "2026-07-16T11:35:11.653Z",
+  "files": [
+    {
+      "file": "atlas-seed.json",
+      "bytes": 1302,
+      "sha256": "fe18649fe988c6dc9c5452977124a0c06db5c7c41371940f48e65c8225825f33"
+    }
+  ],
+  "note": "Hashes make changes detectable after this build. They do not prove source truth."
+}
