@@ -1,0 +1,10 @@
+import { createHash } from 'node:crypto';
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
+const directory = 'public/data';
+const files = (await readdir(directory)).filter(file => file.endsWith('.json') && file !== 'data-manifest.json').sort();
+const entries = await Promise.all(files.map(async file => { const body=await readFile(join(directory,file)); return { file, bytes:body.length, sha256:createHash('sha256').update(body).digest('hex') }; }));
+const manifest={datasetVersion:'2026-07-16.1', builtAt:new Date().toISOString(), files:entries, note:'Hashes make changes detectable after this build. They do not prove source truth.'};
+await mkdir(directory,{recursive:true});
+await writeFile(join(directory,'data-manifest.json'),JSON.stringify(manifest,null,2)+'\n');
+console.log(`Generated manifest for ${entries.length} data file(s).`);

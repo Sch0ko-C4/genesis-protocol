@@ -1,0 +1,13 @@
+{
+  "datasetVersion": "2026-07-16.1",
+  "asOf": "2026-07-16",
+  "scope": "Welt 2: Deutschland-Atlas. Welt 0 wird nicht kopiert; Welt 1 bleibt die neutrale Genesis-Rohvorlage.",
+  "sourcePolicy": "official-primary-or-clearly-labelled-demo",
+  "sources": [
+    {"id":"breg-cabinet","title":"Das Bundeskabinett","publisher":"Die Bundesregierung","url":"https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett","sourceType":"OFFICIAL"},
+    {"id":"breg-merz","title":"Bundeskanzler Friedrich Merz","publisher":"Die Bundesregierung","url":"https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett/friedrich-merz-2342660","sourceType":"OFFICIAL"},
+    {"id":"bundestag-election","title":"Kanzlerwahl 2025","publisher":"Deutscher Bundestag","url":"https://www.bundestag.de/dokumente/textarchiv/2025/kw19-de-kanzlerwahl-1062470","sourceType":"PARLIAMENTARY_REGISTER"},
+    {"id":"debt","title":"Schuldenstand des Bundes","publisher":"Deutsche Finanzagentur","url":"https://www.deutsche-finanzagentur.de/finanzierung-des-bundes/schuldenstatistik/schuldenstand","sourceType":"OFFICIAL_STATISTICS"}
+  ],
+  "claims": [{"id":"claim-merz-chancellor","text":"Friedrich Merz ist Bundeskanzler.","status":"OFFICIAL","validFrom":"2025-05-06","sourceIds":["breg-merz","bundestag-election"]}]
+}
